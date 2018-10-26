@@ -1,0 +1,14 @@
+---
+- name: Add User
+  hosts: all
+  tasks:
+    - name: Add Group to Rehhat Family
+      when: ansible_os_family == "Redhat"
+      user:
+        name: "{{ item }}"
+      with_items:
+          - Sysadmins
+          - NOC
+          - DevOps
+          - NetEng
+          - SysEng
